@@ -1,0 +1,6 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/navi?serverTimezone=GMT%2B8&useSSL=true
+    username: root
+    password: 00011000
