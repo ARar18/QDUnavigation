@@ -1,12 +1,10 @@
-package org.example.qdunavigation.mapper;
+package org.example.qdunavigation.services;
 
-import org.apache.ibatis.annotations.Mapper;
 import org.example.qdunavigation.pojo.Node;
 
 import java.util.List;
 
-@Mapper
-public interface NodeMapper {
+public interface NodeSelectServicesI {
     public List<Node> findAll();
     public Node findById(int id);
 }
