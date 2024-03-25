@@ -8,5 +8,5 @@ import java.util.List;
 @Mapper
 public interface NodeMapper {
     public List<Node> findAll();
-    public Node findById(int id);
+    public Node findById(String id);
 }

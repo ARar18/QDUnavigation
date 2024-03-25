@@ -1,14 +1,14 @@
 package org.example.qdunavigation.pojo;
 
 public class Node {
-    private int node_no;
+    private String node_no;
     private int pos_x;
     private int pos_y;
-    public int getNode_no() {
+    public String getNode_no() {
         return node_no;
     }
 
-    public void setNode_no(int node_no) {
+    public void setNode_no(String node_no) {
         this.node_no = node_no;
     }
 

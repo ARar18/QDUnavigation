@@ -9,6 +9,6 @@ import java.util.List;
 @Mapper
 public interface EdgeMapper {
     List<Edge> findAll();
-    Edge findById(int id);
-    List<Edge> findByNode(int nid);
+    Edge findById(String id);
+    List<Edge> findByNode(String nid);
 }

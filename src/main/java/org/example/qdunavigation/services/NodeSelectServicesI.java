@@ -6,5 +6,5 @@ import java.util.List;
 
 public interface NodeSelectServicesI {
     public List<Node> findAll();
-    public Node findById(int id);
+    public Node findById(String id);
 }

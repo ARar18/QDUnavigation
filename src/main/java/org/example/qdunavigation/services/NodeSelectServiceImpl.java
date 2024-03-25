@@ -13,7 +13,7 @@ public class NodeSelectServiceImpl implements NodeSelectServicesI{
     NodeMapper nodeMapper;
 
     @Override
-    public Node findById(int id) {
+    public Node findById(String id) {
         return nodeMapper.findById(id);
     }
 
