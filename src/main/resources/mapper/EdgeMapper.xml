@@ -4,12 +4,15 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="org.example.qdunavigation.mapper.EdgeMapper">
     <select id = "findAll" resultType="org.example.qdunavigation.pojo.Edge">
-        select * from navi.edge
+        select edge_no as edgeNo, src_node as srcNode, tar_node as tarNode, length from navi.edge
     </select>
     <select id="findById" resultType="org.example.qdunavigation.pojo.Edge">
-        select * from navi.edge where edgeno = #{id}
+        select edge_no as edgeNo, src_node as srcNode, tar_node as tarNode, length from navi.edge where edge_no = #{id}
     </select>
     <select id="findByNode" resultType="org.example.qdunavigation.pojo.Edge">
-        select * from navi.edge where srcNode = #{nid} or tarNode = #{nid}
+        select edge_no as edgeNo, src_node as srcNode, tar_node as tarNode, length from navi.edge where src_Node = #{nid} or tar_Node = #{nid}
+    </select>
+    <select id="count" resultType="int">
+        select count(*) from navi.edge;
     </select>
 </mapper>

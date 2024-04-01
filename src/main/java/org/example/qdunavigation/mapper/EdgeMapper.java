@@ -11,4 +11,5 @@ public interface EdgeMapper {
     List<Edge> findAll();
     Edge findById(String id);
     List<Edge> findByNode(String nid);
+    int count();
 }

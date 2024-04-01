@@ -27,5 +27,9 @@ public class Node {
     public void setPos_y(int pos_y) {
         this.pos_y = pos_y;
     }
+    @Override
+    public String toString(){
+        return getNode_no();
+    }
 
 }

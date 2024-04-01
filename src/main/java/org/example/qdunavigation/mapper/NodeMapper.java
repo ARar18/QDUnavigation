@@ -9,4 +9,5 @@ import java.util.List;
 public interface NodeMapper {
     public List<Node> findAll();
     public Node findById(String id);
+    int count();
 }
