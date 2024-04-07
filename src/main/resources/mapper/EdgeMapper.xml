@@ -12,6 +12,9 @@
     <select id="findByNode" resultType="org.example.qdunavigation.pojo.Edge">
         select edge_no as edgeNo, src_node as srcNode, tar_node as tarNode, length from navi.edge where src_Node = #{nid} or tar_Node = #{nid}
     </select>
+    <select id="findByNodes" resultType="org.example.qdunavigation.pojo.Edge">
+        select edge_no as edgeNo, src_node as srcNode, tar_node as tarNode, length from navi.edge where (src_Node = #{nid1} and tar_Node = #{nid2}) or (src_Node = #{nid2} and tar_Node = #{nid1})
+    </select>
     <select id="count" resultType="int">
         select count(*) from navi.edge;
     </select>

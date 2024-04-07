@@ -4,16 +4,15 @@ import org.example.qdunavigation.mapper.EdgeMapper;
 import org.example.qdunavigation.mapper.NodeMapper;
 import org.example.qdunavigation.pojo.Edge;
 import org.example.qdunavigation.pojo.Node;
+import org.example.qdunavigation.pojo.Path;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import java.util.PriorityQueue;
 
 @Service
-public class PTPNavigationServicesImpl implements PTPNavigationServicesI{
+public class PTPNaviServicesImpl implements PTPNaviServicesI {
     @Autowired
     NodeMapper nodeMapper;
     @Autowired
@@ -39,7 +38,7 @@ public class PTPNavigationServicesImpl implements PTPNavigationServicesI{
     }
 
     @Override
-    public List<Node> PTPNavi(String src, String tar) {
+    public Path PTPNavi(String src, String tar) {
         initGraph();
         shortest = new int[n + 1];
         visited = new boolean[n + 1];
@@ -66,11 +65,9 @@ public class PTPNavigationServicesImpl implements PTPNavigationServicesI{
                 {
                     if(min == M || min > map[orig][i]) //找到与orig最近的点
                     {
-//                        System.out.println(orig + " " + i + " " + map[orig][i]);
                         min = map[orig][i];
                         k = i;
-//                        System.out.println(min);
-//                        System.out.println(k);
+
                     }
                 }
             }
@@ -88,19 +85,22 @@ public class PTPNavigationServicesImpl implements PTPNavigationServicesI{
                         if (map[orig][i] == M || map[orig][i] > callen)
                         {
                             map[orig][i] = callen;
-                            System.out.println(routes.get(i).toString());
-                            //System.out.println(k);
-                            System.out.println(routes.get(k).toString());
                             routes.get(i).clear();
                             routes.get(i).addAll(routes.get(k));
                             routes.get(i).add(nodeMapper.findById(String.valueOf(i)));
-                            System.out.println(routes.get(i).toString());
                         }
                     }
                 }
             }
         }
         if(map[Integer.parseInt(src)][Integer.parseInt(tar)] == M) return null;
-        return routes.get(Integer.parseInt(tar));
+
+        int sum = 0;
+        for(int i = 0; i < routes.get(Integer.parseInt(tar)).size() - 1; i ++){
+            sum += edgeMapper.findByNodes(routes.get(Integer.parseInt(tar)).get(i).getNode_no(), routes.get(Integer.parseInt(tar)).get(i + 1).getNode_no()).length;
+        }
+        Path ret = new Path(routes.get(Integer.parseInt(tar)), sum);
+
+        return ret;
     }
 }
