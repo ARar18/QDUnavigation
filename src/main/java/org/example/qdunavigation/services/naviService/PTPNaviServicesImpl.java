@@ -1,4 +1,4 @@
-package org.example.qdunavigation.services;
+package org.example.qdunavigation.services.naviService;
 
 import org.example.qdunavigation.mapper.EdgeMapper;
 import org.example.qdunavigation.mapper.NodeMapper;

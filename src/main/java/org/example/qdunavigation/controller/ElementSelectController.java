@@ -2,8 +2,8 @@ package org.example.qdunavigation.controller;
 
 import org.example.qdunavigation.pojo.Edge;
 import org.example.qdunavigation.pojo.Node;
-import org.example.qdunavigation.services.EdgeSelectServiceImpl;
-import org.example.qdunavigation.services.NodeSelectServiceImpl;
+import org.example.qdunavigation.services.elemSelectService.EdgeSelectServiceImpl;
+import org.example.qdunavigation.services.elemSelectService.NodeSelectServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;

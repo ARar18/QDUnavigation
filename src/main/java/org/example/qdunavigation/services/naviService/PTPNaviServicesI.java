@@ -1,4 +1,4 @@
-package org.example.qdunavigation.services;
+package org.example.qdunavigation.services.naviService;
 
 import org.example.qdunavigation.pojo.Node;
 import org.example.qdunavigation.pojo.Path;
