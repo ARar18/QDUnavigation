@@ -4,9 +4,9 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="org.example.qdunavigation.mapper.BuildingMapper">
     <select id="findAll" resultType="org.example.qdunavigation.pojo.Building">
-        select building_no as buildingNo, building_name as bulidingName, building_node as bulidingNode from navi.building
+        select building_no as buildingNo, building_name as buildingName, building_node as buildingNode from navi.building
     </select>
     <select id="findByName" resultType="org.example.qdunavigation.pojo.Building">
-        select building_no as buildingNo, building_name as bulidingName, building_node as bulidingNode from navi.building where building_name = #{name}
+        select building_no as buildingNo, building_name as buildingName, building_node as buildingNode from navi.building where building_name = #{name}
     </select>
 </mapper>

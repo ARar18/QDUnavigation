@@ -1,7 +1,9 @@
 package org.example.qdunavigation.controller;
 
+import org.example.qdunavigation.pojo.Building;
 import org.example.qdunavigation.pojo.Edge;
 import org.example.qdunavigation.pojo.Node;
+import org.example.qdunavigation.services.elemSelectService.BuildingSelectServiceImpl;
 import org.example.qdunavigation.services.elemSelectService.EdgeSelectServiceImpl;
 import org.example.qdunavigation.services.elemSelectService.NodeSelectServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +20,8 @@ public class ElementSelectController {
     NodeSelectServiceImpl nodeSelectService;
     @Autowired
     EdgeSelectServiceImpl edgeSelectService;
+    @Autowired
+    BuildingSelectServiceImpl buildingSelectService;
 
     @RequestMapping("/node")
     public List<Node> getNode(){
@@ -34,5 +38,9 @@ public class ElementSelectController {
     @RequestMapping("/edge")
     public List<Edge> getEdge(){
         return edgeSelectService.findAll();
+    }
+    @RequestMapping("/findBuilding")
+    public Building getBuildingByName(@RequestParam(value = "name")String name){
+        return buildingSelectService.findByName(name);
     }
 }
